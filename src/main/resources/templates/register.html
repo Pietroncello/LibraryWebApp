@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+<div>
+    <h1>Register</h1>
+    <form id="inputName" method="post" th:action="@{/registration}" th:object="${utente}">
+
+        <input th:field="*{name}" type="text">
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" />
+
+        <input th:field="*{surname}" type="text">
+        <span th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}" />
+
+        <input th:field="*{username}" type="text">
+        <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" />
+
+        <input th:field="*{password}" type="text">
+        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" />
+
+        <input th:field="*{email}" type="text">
+        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" />
+
+        <button type="submit">Sign in</button>
+
+    </form>
+</div>
+
+</body>
+</html>
