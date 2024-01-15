@@ -15,12 +15,10 @@ public class Libro {
     int id;
 
     @NotNull
-    @Past
     int yearOfPublish;
 
     @NotNull
-    @Min(0)
-    float price;
+    int price;
 
     public String getBookName() {
         return bookName;
@@ -38,11 +36,11 @@ public class Libro {
         this.yearOfPublish = yearOfPublish;
     }
 
-    public float getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(int price) {
         this.price = price;
     }
     public int getId() {

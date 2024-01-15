@@ -8,8 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 public class UtenteController {
@@ -19,7 +18,7 @@ public class UtenteController {
         return "register";
     }
 
-    @PostMapping("/registration")
+    @PostMapping("/postregistration")
     public String addPerson (@Valid Utente utente, BindingResult bindingResult) {
         if (bindingResult.hasErrors())
             return "register";
@@ -31,7 +30,7 @@ public class UtenteController {
         return "login";
     }
 
-    @PostMapping("/login")
+    @PostMapping("/postlogin")
     public String checkPerson (@Valid LoginUser loginUser, BindingResult bindingResult) {
         if (bindingResult.hasErrors()){
             return "login";

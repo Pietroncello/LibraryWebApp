@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Add book</title>
 </head>
 <body>
+<div>
+    <h1>Add a book</h1>
+    <form id="inputBook" method="post" th:action="@{/postaddBook}" th:object="${libro}">
 
+        <p>Book Name</p>
+        <input th:field="*{bookName}" type="text">
+        <span th:if="${#fields.hasErrors('bookName')}" th:errors="*{bookName}"></span>
+
+        <p>Year of publish</p>
+        <input th:field="*{yearOfPublish}" type="number" >
+        <span th:if="${#fields.hasErrors('yearOfPublish')}" th:errors="*{yearOfPublish}"></span>
+
+        <p>Price</p>
+        <input th:field="*{price}" type="number">
+        <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>
+
+
+        <button type="submit">Add this book</button>
+
+    </form>
+</div>
 </body>
 </html>
