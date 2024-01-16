@@ -7,7 +7,7 @@
 <body>
 <div>
     <h1>Login</h1>
-    <form id="inputName" method="post" th:action="@{/postlogin}" th:object="${loginUser}">
+    <form id="inputName" method="post" th:action="@{/postlogin}" th:object="${utente}">
 
         <p>Username</p>
         <input th:field="*{username}" type="text" >

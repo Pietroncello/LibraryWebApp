@@ -1,18 +1,20 @@
 package com.example.librarywebapp.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
+import java.util.List;
+
+@Entity
+@Table(name = "Utenti")
 public class Utente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
+    Integer id;
 
 
     @NotNull
@@ -29,6 +31,19 @@ public class Utente {
 
     @NotNull
     String password;
+
+    @OneToMany(mappedBy = "utente", cascade = CascadeType.ALL)
+    List<Libro> libri;
+    public Utente( String username, String name, String surname, String password) {
+        this.username = username;
+        this.name = name;
+        this.surname = surname;
+        this.password = password;
+    }
+
+    public Utente() {
+
+    }
 
 
     public String getName() {
@@ -55,13 +70,14 @@ public class Utente {
         this.password = password;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
+
     public String getUsername() {
         return username;
     }

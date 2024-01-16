@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>User List</title>
 </head>
 <body>
-
+<div>
+    <h1>Your profiles</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Username</th>
+            <th>Password</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="utente : ${utentes}">
+            <td th:text="${utente.name}"></td>
+            <td th:text="${utente.surname}"></td>
+            <td th:text="${utente.username}"></td>
+            <td th:text="${utente.password}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

@@ -1,10 +1,10 @@
 package com.example.librarywebapp.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
+@Entity
+@Table (name = "libri")
 public class Libro {
 
     @NotNull
@@ -12,13 +12,36 @@ public class Libro {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int id;
+    Integer id;
 
     @NotNull
     int yearOfPublish;
 
     @NotNull
     int price;
+
+    @ManyToOne
+    @JoinColumn
+    Utente utente;
+
+    public Utente getUtente() {
+        return utente;
+    }
+
+    public void setUtente(Utente utente) {
+        this.utente = utente;
+    }
+
+    public Libro(String bookName, Integer id, int yearOfPublish, int price) {
+        this.bookName = bookName;
+        this.id = id;
+        this.yearOfPublish = yearOfPublish;
+        this.price = price;
+    }
+
+    public Libro() {
+
+    }
 
     public String getBookName() {
         return bookName;
@@ -43,13 +66,12 @@ public class Libro {
     public void setPrice(int price) {
         this.price = price;
     }
-    public int getId() {
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
-
-
 }
