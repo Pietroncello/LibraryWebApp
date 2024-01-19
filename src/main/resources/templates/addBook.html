@@ -14,7 +14,7 @@
         <span th:if="${#fields.hasErrors('bookName')}" th:errors="*{bookName}"></span>
 
         <p>Year of publish</p>
-        <input th:field="*{yearOfPublish}" type="number" >
+        <input th:field="*{yearOfPublish}" type="number">
         <span th:if="${#fields.hasErrors('yearOfPublish')}" th:errors="*{yearOfPublish}"></span>
 
         <p>Price</p>

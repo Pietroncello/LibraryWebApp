@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
@@ -43,5 +44,11 @@ public class LibroController {
         Utente utente = (Utente) session.getAttribute("loggedUser");
         model.addAttribute("libri", bookRepository.getMyLibri(utente.getId()));
         return "bookList";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteBook(@PathVariable("id") Integer id) {
+        bookRepository.deleteById(id);
+        return "redirect:/bookList";
     }
 }

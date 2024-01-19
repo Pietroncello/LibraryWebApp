@@ -36,6 +36,7 @@
         <td th:text="${libro.bookName}"></td>
         <td th:text="${libro.yearOfPublish}"></td>
         <td th:text="${libro.price}"></td>
+        <td><a th:href="'/delete/' + ${libro.id} ">Elimina libro</a></td>
     </tr>
     </tbody>
 </table>
